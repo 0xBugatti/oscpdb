@@ -1,0 +1,7 @@
+node_modules/
+cloned_repos/
+__pycache__/
+*.pyc
+.env
+olds/
+visualize/data.json
