@@ -114,16 +114,20 @@ app.use(express.static(VIS_DIR));
 
 // ── Start ─────────────────────────────────────────────────────────────────────
 
-app.listen(PORT, '127.0.0.1', () => {
-  console.log(`\n  OSCP Repos Dashboard`);
-  console.log(`  DB   : ${DB_PATH}`);
-  console.log(`  URL  : http://127.0.0.1:${PORT}`);
-  console.log(`  Ctrl+C to stop\n`);
+// Export for Vercel serverless; listen only when run directly
+if (require.main === module) {
+  app.listen(PORT, '127.0.0.1', () => {
+    console.log(`\n  OSCP Repos Dashboard`);
+    console.log(`  DB   : ${DB_PATH}`);
+    console.log(`  URL  : http://127.0.0.1:${PORT}`);
+    console.log(`  Ctrl+C to stop\n`);
 
-  // Open browser after short delay
-  setTimeout(() => {
-    const open = process.platform === 'win32' ? 'start' :
-                 process.platform === 'darwin' ? 'open' : 'xdg-open';
-    require('child_process').exec(`${open} http://127.0.0.1:${PORT}`);
-  }, 400);
-});
+    setTimeout(() => {
+      const open = process.platform === 'win32' ? 'start' :
+                   process.platform === 'darwin' ? 'open' : 'xdg-open';
+      require('child_process').exec(`${open} http://127.0.0.1:${PORT}`);
+    }, 400);
+  });
+}
+
+module.exports = app;
