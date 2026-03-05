@@ -21,10 +21,10 @@
   &nbsp;
   <img src="https://img.shields.io/badge/DB-SQLite-003B57?style=flat-square&logo=sqlite" alt="SQLite">
 </p>
-![poc](poc.png)
+
 
 ---
-
+![poc](poc.png)
 ## The Story
 
 I was prepping for OSCP and wanted a single place to browse every relevant GitHub repo — notes, tools, writeups, cheatsheet.
